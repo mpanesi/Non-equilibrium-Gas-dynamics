@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+
+\section*{Kinetic Theory Notes}
+
+Collisions occur constantly and tend to change the velocity distribution because velocities emerging from a collision are different from the velocities entering the collision.
+
+This is the collision:
+\[
+(C_i, Z_i) \longrightarrow (C'_i, Z'_i)
+\]
+
+The equilibrium distribution is the one that remains unchanging even though collisions continue to occur.
+
+\paragraph{Definition of Collision Rate:}
+The definition of the collision rate is given by:
+\[
+Z_{\text{AB}} = \frac{\text{Number of collisions}}{\text{Time} \times \text{Volume}}
+\]
+This is the collision rate between molecules of type A and type B.
+
+For a model where molecules are treated as \emph{hard spheres} (like billiard balls), a collision event is a very definite quantity. In a real (quantum) world of nuclei surrounded by swarms of electrons, things are not so clear-cut, and one must define probabilities of particular outcomes given specific inputs.
+
+\paragraph{Hard Sphere (HS) Model:}
+First, considering a \emph{hard sphere} (HS) approach, consider a molecule of type A of class \( C_i \) and a molecule of type B of class \( Z_i \). A and B have masses \( m_A \) and \( m_B \), and diameters \( d_A \) and \( d_B \), respectively. The velocity of B relative to A is defined as:
+\[
+g_i = Z_i - C_i
+\]
+For hard spheres, a collision occurs if the relative distance between the two molecules satisfies:
+\[
+b \leq \frac{d_A + d_B}{2} = d_{AB}
+\]
+where \( d_{AB} \) is the sum of their radii.
+
+We can imagine a sphere of radius \( d_{AB} \) surrounding the center of molecule A. If the trajectory of molecule B brings its center inside this sphere, a collision will occur between A and B. The cross-sectional area of this sphere is the target area for the collision, and if the relative velocity \( g_i \) is directed inside this area, a collision will occur.
+
+This area is called the \textit{collision cross section} and is denoted by:
+\[
+\sigma_t \, (\text{total collision cross section})
+\]
+For hard spheres, the total collision cross section is given by:
+\[
+\sigma_t = \pi d_{AB}^2
+\]
+
+\paragraph{Improved Models:}
+For many gas dynamic calculations, this simple model is not accurate enough, though it predicts certain qualitative behaviors. The Variable Hard Sphere (VHS) model improves on this by defining the collision cross section as a function of the relative speed \( g \), i.e., the magnitude of \( g_i \):
+\[
+\sigma_t = \sigma(g)
+\]
+This is the current state-of-the-art model for most aerodynamic calculations. For chemistry and physics, vastly more complicated models are used.
+
+\paragraph{Total Cross Section:}
+The cross section described above was termed the \textit{total cross section} because it integrates over all possible outcomes of the collision. It includes elastic collisions for all possible \( C'_i, Z'_i \) consistent with \( C_i \) and \( Z'_i \), and hence \( g_i \).
+
+For most general types of collisions, the total cross section includes the possibility that different outcomes occur, such as reactions or inelastic collisions.
+
+\paragraph{Elastic Collisions:}
+Restricting ourselves to elastic collisions (elastic if and only if no change in molecular internal energy and kinetic energy remains constant):
+
+
+The conservation of momentum and energy shows:
+\[
+g' = g
+\]
+
+i.e., the \textit{relative speed after collision} = \textit{relative speed before collision}. 
+
+Note, however, that \( \mathbf{g}' \neq \mathbf{g} \), i.e., the relative velocity can change.
+
+Elastic collisions change the direction (but not the magnitude) of the relative velocity vector.
+
+The scattering can be specified by the polar angles \( \chi \) and \( \epsilon \), which indicate the orientation of \( \mathbf{g}' \) relative to \( \mathbf{g} \).
+
+The differential scattering solid angle \( d\Omega \) corresponding to small variations in polar angle \( \chi \) and azimuthal angle \( \epsilon \) is given by:
+\[
+d\Omega = \sin \chi \, d\chi \, d\epsilon
+\]
+
+The differential scattering cross-section:
+\[
+\frac{d\sigma}{d\Omega}
+\]
+corresponds to the probability that scattering occurs in a given solid angle.
+
+%\includegraphics[width=0.7\textwidth]{collision_diagram.png}
+
+The scattering can be specified by the polar angles \( \chi \) and \( \epsilon \), which indicate the orientation of \( \mathbf{g}' \) relative to \( \mathbf{g} \).
+
+The differential scattering solid angle \( d\hat{\Omega} \) corresponding to small variations in polar angle \( \chi \) and azimuthal angle \( \epsilon \) is given by:
+\[
+d\hat{\Omega} = \sin \chi \, d\chi \, d\epsilon
+\]
+
+The differential scattering cross-section:
+\[
+\frac{d\sigma}{d\hat{\Omega}}
+\]
+corresponds to the probability that scattering occurs into \( d\hat{\Omega} \), i.e., that \( \mathbf{g}' \) has orientation \( (\chi, \epsilon) \), or within \( d\chi \, d\epsilon \) of \( (\chi, \epsilon) \).
+
+The total cross-section \( \sigma_T \) is given by:
+\[
+\sigma_T = \int_{\hat{\Omega}} \frac{d\sigma}{d\hat{\Omega}} d\hat{\Omega}
+= \int_0^{2\pi} \int_0^{\pi} \left( \frac{d\sigma}{d\hat{\Omega}} \right) \sin \chi \, d\chi \, d\epsilon
+\]
+
+%\includegraphics[width=0.7\textwidth]{collision_diagram_2.png}
+
+\section*{Collision Rate for Molecules A and B}
+
+Using the cross-section ideas, one can write down the differential collision rate for molecules A of class \( C_i \) with molecules B of class \( Z_i \).
+
+Consider first a single B molecule of class \( Z_i \). Then it is moving at speed \( g_i \) relative to A molecules of class \( C_i \) and sweeps a volume
+\[
+dV = g \, dt \, \left( \frac{d\sigma}{d\hat{\Omega}} \right) d\hat{\Omega}
+\]
+in time \( dt \).
+
+The number of A molecules of class \( C_i \) in this volume is:
+\[
+n_A f_A(C_i) dV_c
+\]
+Thus, the differential collision frequency for this B molecule of class \( Z_i \) is:
+\[
+d^{(7)}\Theta_{BA} = n_A f_A(C_i) dV_c \, g \left( \frac{d\sigma}{d\hat{\Omega}} \right) d\hat{\Omega}
+\]
+
+\section*{Macroscopic Collision Rate}
+
+But there are \( n_B f_B(Z_i) dV_Z \) such B molecules per unit volume, so
+\[
+d^{(8)}\Theta_{BA} = d^{(8)}\Theta_{AB} = n_A f_A(C_i) dV_c \, n_B f_B(Z_i) dV_Z \, g \left( \frac{d\sigma}{d\hat{\Omega}} \right) d\hat{\Omega}
+\]
+(A colliding with B is the same as B colliding with A.)
+
+\paragraph{To get the macroscopic rate:}
+One has to do the required integrations. One can immediately integrate over all \( d\hat{\Omega} \):
+\[
+d^{(6)}\Theta_{AB} = n_A f_A(C_i) dV_c \, n_B f_B(Z_i) dV_Z \, g \, \sigma_T
+\]
+where we use
+\[
+\sigma_T = \int_{\hat{\Omega}} \frac{d\sigma}{d\hat{\Omega}} d\hat{\Omega}
+\]
+and note that \( \sigma_T = \sigma_T(g) \) in general.
+
+
+
+\end{document}
